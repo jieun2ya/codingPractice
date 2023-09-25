@@ -4,30 +4,27 @@ class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
         int answer = n- lost.length;
         
-        List<Integer> lList = new ArrayList<>();
-    	for(int i : lost) lList.add(i);
-    	
-    	List<Integer> rList = new ArrayList<>();
-    	for(int i : reserve) rList.add(i);
-    	
-    	for (int i = 0; i < lList.size(); i++) {
-			for (int j = 0; j < rList.size(); j++) {
-				if(lList.get(i) == rList.get(j)) {
-					lList.remove(i); rList.remove(j);
-					n++; i--;
-					break;
-				}
-			}
-		}
-    	
-    	for (int i = 0; i < lList.size(); i++) {
-			for (int j = 0; j < rList.size(); j++) {
-				if(Math.abs(lList.get(i) - rList.get(j)) == 1) {
-					n++; rList.remove(j);
-					break;
-				}
-			}
-		}
+        // 여벌 있지만 도둑맞아서 못빌려줌
+        for(int i=0; i<lost.length; i++) {
+        	for(int j=0; j<reserve.length; j++) {
+        		if(lost[i] == reserve[j]) {
+        			answer++;
+        			lost[i] = reserve[j] = -1;
+        			break;
+        		}
+        	}
+        }
+        
+        // 여벌없고 도둑맞음
+        for(int lostN : lost) {
+        	for(int i = 0; i<reserve.length; i++) {
+        		if(reserve[i] == lostN-1 || reserve[i] == lostN+1) {
+        			answer++;
+        			reserve[i] = -1;
+        			break;
+        		}
+        	}
+        }
 
         
         return answer;
