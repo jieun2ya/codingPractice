@@ -21,7 +21,7 @@ class Solution {
             
         }
         
-        if(left != right || s.charAt(0) == ')'){
+        if(left != right){
             answer = false;
         }
 
