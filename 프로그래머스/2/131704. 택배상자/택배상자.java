@@ -4,7 +4,6 @@ class Solution {
     public int solution(int[] order) {
         int answer = 0;
         
-        int[] container = {5,4,3,2,1};
         Stack<Integer> containerSub = new Stack<>();
         int originArr[] = order.clone();
         Arrays.sort(order);
