@@ -4,6 +4,7 @@ class Solution {
         int left = 0, right = 0;
         int check = 0;
         
+
         for(int i = 0; i < s.length(); i++){
             char c = s.charAt(i);
             
