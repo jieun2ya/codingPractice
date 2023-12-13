@@ -20,6 +20,7 @@ class Solution {
                     i--;
                 }
         	}
+            
         }
         
         int[] stk = new int[stkList.size()];
