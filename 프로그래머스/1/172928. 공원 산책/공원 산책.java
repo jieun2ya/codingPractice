@@ -58,7 +58,8 @@ class Solution {
 
         return answer;
     }
-    
+
+// 요부분 수정해야함. w or h 가 e or s 보다 적을경우....추가해야함...
     public boolean checkX (int w,int h, int e, int s,String[] park) {
 	boolean result = true;
 	for(int i=e; i<=h; i++) {
